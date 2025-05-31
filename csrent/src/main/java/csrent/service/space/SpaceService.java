@@ -1,7 +1,7 @@
-package csrent.service;
+package csrent.service.space;
 
-import csrent.model.Space;
-import csrent.repository.SpaceRepository;
+import csrent.model.space.Space;
+import csrent.repository.space.SpaceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

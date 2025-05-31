@@ -1,9 +1,9 @@
-package csrent.controller;
+package csrent.controller.space;
 
 import java.util.ArrayList;
-import csrent.model.Space;
-import csrent.repository.CRUDMemory;
-import csrent.service.SpaceService;
+import csrent.model.space.Space;
+import csrent.repository.genericCRUD.CRUDMemory;
+import csrent.service.space.SpaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +14,7 @@ public class SpaceController {
     @Autowired
     SpaceService service;
     CRUDMemory memory;
-    private ArrayList<Space> spaces;
+    //private ArrayList<Space> spaces;
 
 
     //public SpaceController(){
@@ -30,24 +30,24 @@ public class SpaceController {
     public ArrayList<Space> getAll(){
         return service.getAll();
     }
-    
-    // Metodo para retornar una objeto por id
-    @GetMapping ("{id}")
-    public Space getSpace(@PathVariable int id){
-        return service.search(id);
-    }
-
 
     //Metodo para agregar un elemento al array
     @PostMapping
-     public Space postSpace(@RequestBody Space space){
+    public Space postSpace(@RequestBody Space space){
         return service.add(space);
-     }
+    }
 
-     // Actualizar un elemento de un arraylist
+    // Actualizar un elemento de un arraylist
     @PutMapping
     public Space putSpace(@RequestBody Space space){
         return service.update(space);
+    }
+
+    //Metodo que reciba un objeto y verifique cuales atributos traen información
+    // solo modifica los atributos que corrresponden
+    @PatchMapping
+    public Space patchSpace(@RequestBody Space space){
+        return service.edit(space);
     }
 
     //Metodo para eliminar un espacio por id
@@ -56,13 +56,21 @@ public class SpaceController {
         return service.delete(id);
     }
 
+    // Metodo para retornar una objeto por id
+    @GetMapping ("{id}")
+    public Space getSpace(@PathVariable int id){
+        return service.search(id);
+    }
 
-    //Metodo que reciba un objeto y verifique cuales atributos traen información
-    // solo modifica los atributos que corrresponden
-    @PatchMapping
-     public Space patchSpace(@RequestBody Space space){
-        return service.edit(space);
-     }
+
+
+
+
+
+
+
+
+
 
 
 }

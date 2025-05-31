@@ -1,6 +1,8 @@
-package csrent.model;
+package csrent.model.space;
 
-public class Space implements Identifiable{
+import csrent.model.Identifiable;
+
+public class Space implements Identifiable {
     private Integer id;
     private String name;
     private int capacity;

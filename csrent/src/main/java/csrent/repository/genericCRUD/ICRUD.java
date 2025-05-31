@@ -1,4 +1,4 @@
-package csrent.repository;
+package csrent.repository.genericCRUD;
 
 import java.util.ArrayList;
 

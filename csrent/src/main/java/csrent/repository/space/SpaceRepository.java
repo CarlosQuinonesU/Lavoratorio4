@@ -1,10 +1,11 @@
-package csrent.repository;
+package csrent.repository.space;
 
-import csrent.model.Space;
+import csrent.model.space.Space;
+import csrent.repository.genericCRUD.CRUDMemory;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class SpaceRepository extends CRUDMemory<Space>{
+public class SpaceRepository extends CRUDMemory<Space> {
 
     public SpaceRepository(){
         data.add(new Space(1, "Grabación IN",122,"Cabina de grabación"));

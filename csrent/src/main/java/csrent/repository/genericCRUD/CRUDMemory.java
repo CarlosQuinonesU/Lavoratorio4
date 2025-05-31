@@ -1,11 +1,10 @@
-package csrent.repository;
+package csrent.repository.genericCRUD;
 
 import csrent.model.Identifiable;
-import csrent.model.Space;
 
 import java.util.ArrayList;
 
-public abstract class CRUDMemory<T extends Identifiable> implements ICRUD<T, Integer>{
+public abstract class CRUDMemory<T extends Identifiable> implements ICRUD<T, Integer> {
 
     protected ArrayList<T> data=new ArrayList<>();
 
