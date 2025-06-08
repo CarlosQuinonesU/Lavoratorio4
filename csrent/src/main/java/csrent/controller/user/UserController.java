@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping ("/user")
@@ -18,7 +20,7 @@ public class UserController {
     CRUDMemory memory;
 
     @GetMapping
-    public ArrayList<User> getAll(){
+    public List<User> getAll(){
         return service.getAll();
     }
 
@@ -38,12 +40,12 @@ public class UserController {
     }
 
     @DeleteMapping ("{id}")
-    public User deleteUser (@PathVariable int id){
+    public User deleteUser (@PathVariable Integer id){
         return service.delete(id);
     }
 
     @GetMapping ("{id}")
-    public User getUser (@PathVariable int id){
+    public Optional<User> getUser (@PathVariable Integer id){
         return service.search(id);
     }
 

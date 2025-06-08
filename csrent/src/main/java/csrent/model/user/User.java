@@ -1,11 +1,15 @@
 package csrent.model.user;
 
 import csrent.model.Identifiable;
+import jakarta.persistence.*;
 
 import java.util.Objects;
-
+@Entity
+@Table(name = "tbuser")
 public class User implements Identifiable {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String name, address, type;
 
     public User() {
@@ -15,7 +19,7 @@ public class User implements Identifiable {
         type="";
     }
 
-    public User(int id, String name, String type, String address  ) {
+    public User(Integer id, String name, String type, String address  ) {
         this.id = id;
         this.name = name;
         this.address = address;

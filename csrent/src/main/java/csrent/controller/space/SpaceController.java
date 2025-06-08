@@ -1,6 +1,8 @@
 package csrent.controller.space;
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 import csrent.model.space.Space;
 import csrent.repository.genericCRUD.CRUDMemory;
 import csrent.service.space.SpaceService;
@@ -27,7 +29,7 @@ public class SpaceController {
 
 
     @GetMapping
-    public ArrayList<Space> getAll(){
+    public List<Space> getAll(){
         return service.getAll();
     }
 
@@ -48,17 +50,17 @@ public class SpaceController {
     @PatchMapping
     public Space patchSpace(@RequestBody Space space){
         return service.edit(space);
-    }
+  }
 
     //Metodo para eliminar un espacio por id
     @DeleteMapping("/{id}")
-    public Space deleteSpace(@PathVariable int  id){
+    public Space deleteSpace(@PathVariable Integer  id){
         return service.delete(id);
     }
 
     // Metodo para retornar una objeto por id
     @GetMapping ("{id}")
-    public Space getSpace(@PathVariable int id){
+    public Optional<Space> getSpace(@PathVariable Integer id){
         return service.search(id);
     }
 

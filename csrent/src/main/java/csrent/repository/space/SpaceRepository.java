@@ -14,19 +14,19 @@ public class SpaceRepository extends CRUDMemory<Space> {
         data.add(new Space(4, "Música Quiñones",50,"Estudio de música"));
     }
 
-
+    // Se realiza con .isEmpty, porque solo de esta manera funciona, con !=null no
     @Override
     public Space edit(Space space) {
 
         for (Space element: data){
             if (element.getId().intValue()==space.getId().intValue()){
-                if (space.getName()!=null){
+                if (!space.getName().isEmpty()){
                     element.setName(space.getName());
                 }
-                if (space.getCapacity()!=0) {
+                if (space.getCapacity()!=0) {//Igual que aquí, si lo hago con !=null, se actualiza a 0 siempre
                     element.setCapacity(space.getCapacity());
                 }
-                if (space.getType()!=null){
+                if (!space.getType().isEmpty()){
                     element.setType(space.getType());
                 }
                 return element;

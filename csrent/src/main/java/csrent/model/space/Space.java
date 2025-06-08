@@ -1,11 +1,18 @@
 package csrent.model.space;
 
 import csrent.model.Identifiable;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+@Entity
 public class Space implements Identifiable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private int capacity;
+    private Integer capacity;
     private String type;
 
 
@@ -16,7 +23,7 @@ public class Space implements Identifiable {
         type="";
     }
 
-    public Space(Integer id, String name, int capacity, String type) {
+    public Space(Integer id, String name, Integer capacity, String type) {
         this.id = id;
         this.name = name;
         this.capacity = capacity;
@@ -39,11 +46,11 @@ public class Space implements Identifiable {
         this.name = name;
     }
 
-    public int getCapacity() {
+    public Integer getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(int capacity) {
+    public void setCapacity(Integer capacity) {
         this.capacity = capacity;
     }
 
