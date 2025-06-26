@@ -25,6 +25,8 @@ public class UserService {
             userDB.setName(user.getName());
             userDB.setType(user.getType());
             userDB.setAddress(user.getAddress());
+            userDB.setEmail(user.getEmail());
+            userDB.setPassword(user.getPassword());
             return repository.save(userDB);
         }
         return new User();
@@ -42,10 +44,21 @@ public class UserService {
             if (user.getType()!=null){
                 userDB.setType(user.getType());
             }
+            if (user.getEmail()!=null){
+                userDB.setEmail(user.getEmail());
+            }
+            if (user.getPassword()!=null){
+                userDB.setPassword(user.getPassword());
+            }
             return repository.save(userDB);
         }
         return new User();
     }
+    public boolean existByEmail(String email){
+        return repository.existsByEmail(email);
+    }
+
+
     public User delete(Integer id){
         Optional<User> existingUser= repository.findById(id);
         if (existingUser.isPresent()){
@@ -56,5 +69,14 @@ public class UserService {
 
         return new User();
     }
-    public Optional<User> search(Integer id){return repository.findById(id);}
+    public User getByEmail(String email){
+        return repository.getByEmail(email);
+    }
+    public User search(String email){
+        User user= repository.getByEmail(email);
+        if (repository.existsByEmail(email)){
+            return user;
+        }
+        return new User();
+    }
 }

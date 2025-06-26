@@ -14,7 +14,10 @@ public class SpaceService {
     SpaceJpaRepository repository;
 
     public List<Space> getAll(){return repository.findAll();}
-    public Space add (Space space){return repository.save(space);}
+    public Space add (Space space){
+
+        return repository.save(space);
+    }
     public Space update (Space space){
         Optional <Space> existingSpace= repository.findById(space.getId());
         if (existingSpace.isPresent()) {
@@ -52,6 +55,19 @@ public class SpaceService {
         }
         return new Space();
     }
-    public Optional<Space> search (Integer id){return repository.findById(id);}
+    public boolean existsById(Integer id){
+        return repository.existsById(id);
+    }
+    public boolean existsByName(String name){
+        return repository.existsByName(name);
+    }
+    public Space search (Integer id){
+        Optional<Space> space= repository.findById(id);
+        if (space.isPresent()){
+            Space spaceDB= space.get();
+            return spaceDB;
+        }
+        return new Space();
+    }
 
 }

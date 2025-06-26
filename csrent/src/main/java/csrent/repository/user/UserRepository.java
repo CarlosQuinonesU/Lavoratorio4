@@ -7,12 +7,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class UserRepository extends CRUDMemory<User> {
 
-     public UserRepository(){
-         data.add(new User( 1,"Carlos Quiñones","Propietario","Alajuela"));
-         data.add(new User( 2,"Roberto Ugalde","Usuario","Puntarenas"));
-         data.add(new User( 3,"Kimberly Campos","Usario","San José"));
-         data.add(new User( 4,"Stephanie Prendas","Usuario","Alajuela"));
-     }
+//     public UserRepository(){
+//         data.add(new User( 1,"Carlos Quiñones","Propietario","Alajuela"));
+//         data.add(new User( 2,"Roberto Ugalde","Usuario","Puntarenas"));
+//         data.add(new User( 3,"Kimberly Campos","Usario","San José"));
+//         data.add(new User( 4,"Stephanie Prendas","Usuario","Alajuela"));
+//     }
 
     @Override
     public User edit(User user) {
